@@ -14,34 +14,39 @@ using namespace std;
 int const MAX_X(10);
 int const MAX_Y(20);
 
-//Prototypes
-void print_map(int tab[MAX_X][MAX_Y]);
-
+//Enum
 enum Case
 {
 	Empty = 0,
-	Head = 1,
-	Piece = 2,
-	Apple = 3
+		Head = 1,
+		Piece = 2,
+		Apple = 3
 };
+enum Direction
+{
+	UP = 1,
+	DOWN = 2,
+	LEFT = 3,
+	RIGHT = 4
+};
+
+//Variables
+int map[MAX_X][MAX_Y] = { { Case::Empty } };
+Direction mainDirection = Direction::UP;
+int lenghtSnake = 1;
+
+#include "Main.h"
+#include "Snake.h"
 
 int main()
 {
-	//Init VARIABLE
-	int map[MAX_X][MAX_Y] = { {Case::Empty} };
-
-	//Init Snake
-	map[5][1] = Case::Head;
-	map[4][1] = Case::Piece;
-	map[3][1] = Case::Piece;
-
 	sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
 	sf::CircleShape shape(100.f);
 	shape.setFillColor(sf::Color::Green);
 
 	while (window.isOpen())
 	{
-		/*sf::Event event;
+		sf::Event event;
 		while (window.pollEvent(event))
 		{
 			if (event.type == sf::Event::Closed)
@@ -51,27 +56,30 @@ int main()
 			{
 				if (event.key.code == sf::Keyboard::Escape)
 					window.close();
+
+				switch (event.key.code)
+				{
+					case sf::Keyboard::Up:
+						break;
+					case sf::Keyboard::Down:
+						break;
+					case sf::Keyboard::Left:
+						break;
+					case sf::Keyboard::Right:
+						break;
+					default:
+						break;
+				}
 			}
 		}
 
 		window.clear(sf::Color::Black);
 		//window.draw(shape);
-		window.display();*/
+		window.display();
 
-		print_map(map);
+		print_map(::map);
 		system("cls");
 	}
 
 	return 0;
-}
-
-void print_map(int tab[MAX_X][MAX_Y]) {
-	for (int i = 0; i < MAX_X; i++)
-	{
-		for (int j = 0; j < MAX_Y; j++) 
-		{
-			cout << tab[i][j];
-		}
-		cout << endl;
-	}
 }
