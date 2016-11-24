@@ -1,0 +1,7 @@
+Snake
+
+1. Un monde (Classe)
+2. Plusieurs Snake (Classe pour gérer chaque Snake)
+3. Direction
+3. La Pomme
+4. IA
