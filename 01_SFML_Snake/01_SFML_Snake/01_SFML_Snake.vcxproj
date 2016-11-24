@@ -12,7 +12,7 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{7350B417-86B9-4F40-A795-5DA67BDAFD7F}</ProjectGuid>
-    <RootNamespace>SFML_Project_Template__VS2015_1</RootNamespace>
+    <RootNamespace>_01_SFML_Snake</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
