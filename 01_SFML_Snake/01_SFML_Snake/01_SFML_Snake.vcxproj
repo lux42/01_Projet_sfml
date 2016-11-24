@@ -66,6 +66,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Header_classe_snake.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -73,6 +74,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Fonctions_snake.h" />
+    <ClInclude Include="Header_classe_snake.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

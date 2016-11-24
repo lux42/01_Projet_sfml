@@ -6,6 +6,7 @@
 // Date : 24/11/2016
 
 
+
 //----------------------------------------------------
 // INCLUDES
 //----------------------------------------------------
@@ -17,12 +18,13 @@
 #include <string>
 #include <sstream>
 #include "fonctions_snake.h"
-//#include <Text.hpp>
+
+#include "Header_classe_snake.h" 
+
 
 //----------------------------------------------------
 // VARIABLES GLOBAL
 //----------------------------------------------------
-
 
 using namespace std;
 string culoare;
@@ -43,10 +45,6 @@ struct Game
 
 
 
-
-
-//cout << "1" << endl;
-
 //----------------------------------------------------
 // CODE PRINCIPAL
 //----------------------------------------------------
@@ -57,7 +55,7 @@ int main()
 	
 	
 	strcpy_s(snake.nom, "Lux");
-	
+		
 	sf::Font font;
 
 	if (!font.loadFromFile("Titillium-Light.ttf"))
@@ -68,6 +66,7 @@ int main()
 	
 
 	sf::Text Menu, Text_start, Text_exit;
+
 	// MENU
 	Menu.setFont(font);
 	Menu.setString(" Bienvenu dans le Snake ");
