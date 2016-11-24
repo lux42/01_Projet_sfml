@@ -4,13 +4,15 @@
 #include <string>
 using namespace std;
 
-class Snake
+class World
 {
 public:
 
+	void init_space(int x, int y);
 	void deplacement(int x,int y);
 	void collision();
 	bool mort();
+
 
 private:
 

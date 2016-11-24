@@ -27,7 +27,7 @@
 //----------------------------------------------------
 
 using namespace std;
-string culoare;
+//string culoare;
 
 //----------------------------------------------------
 // STRUCTURES
@@ -76,14 +76,14 @@ int main()
 	Menu.setPosition(150, 0);
 	// START
 	Text_start.setFont(font);
-	Text_start.setString("F1 - START");
+	Text_start.setString("ENTER - START");
 	Text_start.setColor(sf::Color::White);
 	Text_start.setCharacterSize(25);
 	Text_start.setOrigin(0, 0);
 	Text_start.setPosition(10, 400);
 	// EXIT
 	Text_exit.setFont(font);
-	Text_exit.setString("F12 - EXIT");
+	Text_exit.setString("ESCAPE - EXIT");
 	Text_exit.setColor(sf::Color::White);
 	Text_exit.setCharacterSize(25);
 	Text_exit.setOrigin(0, 0);
@@ -99,12 +99,13 @@ int main()
 		{
 			if (event.type == sf::Event::Closed)
 				window.close();
-		
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::F12))
+
+		    //if (event.Type == Event::KeyPressed && event.Key.Code == Key::Escape)
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
 			{
 					window.close();
 			}
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::F1))
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return))
 			{
 				cout << "Bonjour :D " << endl;
 			}
