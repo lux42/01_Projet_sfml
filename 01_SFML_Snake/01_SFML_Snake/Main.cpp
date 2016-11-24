@@ -18,9 +18,9 @@ int const MAX_Y(20);
 enum Case
 {
 	Empty = 0,
-		Head = 1,
-		Piece = 2,
-		Apple = 3
+	Head = 1,
+	Piece = 2,
+	Apple = 3
 };
 enum Direction
 {
