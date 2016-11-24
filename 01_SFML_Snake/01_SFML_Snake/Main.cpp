@@ -1,3 +1,10 @@
+// Version 1.0
+// Créateur: - Gaëtan Sprunger
+//			 - Lucas Neuahus
+//
+// Création du projet
+// Date : 24/11/2016
+
 #include <SFML/Graphics.hpp>
 
 int main()
