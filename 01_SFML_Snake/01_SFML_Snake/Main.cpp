@@ -27,7 +27,8 @@ enum Direction
 	UP = 1,
 	DOWN = 2,
 	LEFT = 3,
-	RIGHT = 4
+	RIGHT = 4,
+	LAST
 };
 
 #include "Main.h"
@@ -36,17 +37,21 @@ enum Direction
 int main()
 {
 	//Variables
+	srand((int) time(NULL));
 	int plateau[MAX_X][MAX_Y] = { {Case::Empty} };
-	Direction mainDirection = static_cast<Direction>(rand() % 4);
+	Direction mainDirection = static_cast<Direction>(rand() % LAST);
 	int lenghtSnake = 1;
-	int X = rand() % MAX_X;
-	int Y = rand() % MAX_Y;
+	int X = rand() % (MAX_X + 1);
+	int Y = rand() % (MAX_Y + 1);
+	int XApple = rand() % MAX_X;
+	int YApple = rand() % MAX_Y;
+
 	plateau[X][Y] = Case::Head;
+	plateau[XApple][YApple] = Case::Apple;
 
 	sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
 	sf::CircleShape shape(100.f);
 	shape.setFillColor(sf::Color::Green);
-
 
 	sf::Clock mainClock;
 	while (window.isOpen())
@@ -65,12 +70,16 @@ int main()
 				switch (event.key.code)
 				{
 					case sf::Keyboard::Up:
+						mainDirection = Direction::UP;
 						break;
 					case sf::Keyboard::Down:
+						mainDirection = Direction::DOWN;
 						break;
 					case sf::Keyboard::Left:
+						mainDirection = Direction::LEFT;
 						break;
 					case sf::Keyboard::Right:
+						mainDirection = Direction::RIGHT;
 						break;
 					default:
 						break;
@@ -83,8 +92,11 @@ int main()
 		window.display();
 
 		sf::Time timeElapsed = mainClock.getElapsedTime();
-		//std::cout << timeElapsed.asMilliseconds() << std::endl;
 		if (timeElapsed.asSeconds() > 1.0f) {
+			plateau[X][Y] = Case::Empty;
+			move_snake(&X, &Y, mainDirection);
+			cout << X << " / " << Y << endl;
+			plateau[X][Y] = Case::Head;
 			print_map(plateau);
 			mainClock.restart();
 		}

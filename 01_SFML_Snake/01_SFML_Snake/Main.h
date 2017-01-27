@@ -1,13 +1,29 @@
 #pragma once
 
 //Prototypes
+void move_snake(int *X, int *Y, Direction lastMove);
 void print_map(int tab[MAX_X][MAX_Y]);
-void move_snake(int tab[MAX_X][MAX_Y]);
 
-//Fontions
-void move_snake(int tab[MAX_X][MAX_Y])
+//Fonctions
+void move_snake(int *X, int *Y, Direction lastMove)
 {
-
+	switch (lastMove)
+	{
+		case UP:
+			*X -= 1;
+			break;
+		case DOWN:
+			*X += 1;
+			break;
+		case LEFT:
+			*Y -= 1;
+			break;
+		case RIGHT:
+			*Y += 1;
+			break;
+		default:
+			break;
+	}
 }
 
 void print_map(int tab[MAX_X][MAX_Y])
