@@ -30,20 +30,25 @@ enum Direction
 	RIGHT = 4
 };
 
-//Variables
-int map[MAX_X][MAX_Y] = { { Case::Empty } };
-Direction mainDirection = Direction::UP;
-int lenghtSnake = 1;
-
 #include "Main.h"
 #include "Snake.h"
 
 int main()
 {
+	//Variables
+	int plateau[MAX_X][MAX_Y] = { {Case::Empty} };
+	Direction mainDirection = static_cast<Direction>(rand() % 4);
+	int lenghtSnake = 1;
+	int X = rand() % MAX_X;
+	int Y = rand() % MAX_Y;
+	plateau[X][Y] = Case::Head;
+
 	sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
 	sf::CircleShape shape(100.f);
 	shape.setFillColor(sf::Color::Green);
 
+
+	sf::Clock mainClock;
 	while (window.isOpen())
 	{
 		sf::Event event;
@@ -77,8 +82,12 @@ int main()
 		//window.draw(shape);
 		window.display();
 
-		print_map(::map);
-		system("cls");
+		sf::Time timeElapsed = mainClock.getElapsedTime();
+		//std::cout << timeElapsed.asMilliseconds() << std::endl;
+		if (timeElapsed.asSeconds() > 1.0f) {
+			print_map(plateau);
+			mainClock.restart();
+		}
 	}
 
 	return 0;
